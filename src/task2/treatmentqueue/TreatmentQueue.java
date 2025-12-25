@@ -50,4 +50,8 @@ public class TreatmentQueue {
 
         }
     }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
 }

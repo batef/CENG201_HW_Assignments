@@ -1,15 +1,18 @@
 package task1.patientlist;
 
 public class Patient {
-    int id;
-    String name;
-    int severity;
-    int age;
+    public int id;
+    public String name;
+    public int severity;
+    public int age;
 
     public Patient(int id, String name, int severity, int age) {
         this.id = id;
         this.name = name;
         this.severity = severity;
         this.age = age;
+    }
+    public int getSeverity() {
+        return severity;
     }
 }
