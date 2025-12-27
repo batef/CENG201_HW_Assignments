@@ -7,11 +7,11 @@ import java.util.HashMap;
 
 public class HospitalSystem {
 
-    private final PatientList admittedPatients;
-    private final TreatmentQueue normalQueue;
-    private final TreatmentQueue priorityQueue;
-    private final DischargeStack dischargeStack;
-    private final HashMap<Integer, Patient> patientLookup;
+    private  PatientList admittedPatients;
+    private TreatmentQueue normalQueue;
+    private  TreatmentQueue priorityQueue;
+    private  DischargeStack dischargeStack;
+    private  HashMap<Integer, Patient> patientLookup; // HashMap for fast patient lookup by ID
 
     public HospitalSystem() {
         admittedPatients = new PatientList();
@@ -26,6 +26,7 @@ public class HospitalSystem {
         patientLookup.put(p.id, p);
     }
 
+    //(priority or normal)
     public void addTreatmentRequest(int patientId, boolean isPriority) {
         TreatmentRequest req = new TreatmentRequest(patientId, isPriority);
         if (isPriority) {
@@ -55,6 +56,7 @@ public class HospitalSystem {
         }
     }
 
+    //Sorting by severy level
     public void sortPatientsBySeverity() {
         Patient[] patients = patientLookup.values().toArray(new Patient[0]);
 

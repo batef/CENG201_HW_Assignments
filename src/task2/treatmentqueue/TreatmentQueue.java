@@ -1,5 +1,8 @@
 package task2.treatmentqueue;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class TreatmentQueue {
     Node front = null;
     Node rear = null;
@@ -42,9 +45,12 @@ public class TreatmentQueue {
         if (curr == null) {
             System.out.println("Empty treatment queue");
         } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             while(curr != null) {
+                String formattedTime = sdf.format(new Date(curr.data.arrivalTime));
+
                 System.out.println("Patient ID: " + curr.data.patientId +
-                        " | Arrival Time: " + curr.data.arrivalTime);
+                        " | Arrival Time: " + formattedTime);
                 curr = curr.next;
             }
 

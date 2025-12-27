@@ -1,5 +1,8 @@
 package task3.dischargestack;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;;
+
 public class DischargeStack {
     Node top = null;
     int size = 0;
@@ -31,8 +34,10 @@ public class DischargeStack {
         if (curr == null) {
             System.out.println("Stack is empty");
         } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             while(curr != null) {
-                System.out.println("Patient ID: " + curr.data.patientId + " | Discharge Time: " + curr.data.dischargeTime);
+                String formattedTime = sdf.format(new Date(curr.data.dischargeTime));
+                System.out.println("Patient ID: " + curr.data.patientId + " | Discharge Time: " + formattedTime);
                 curr = curr.next;
             }
 

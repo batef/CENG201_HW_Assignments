@@ -7,10 +7,9 @@ public class TestScenario {
 
     public static void main(String[] args) {
 
-        // 1️⃣ Hospital System oluştur
         HospitalSystem system = new HospitalSystem();
 
-        // 2️⃣ 10 hasta ekle
+        // adding 10 patients
         system.registerPatient(new Patient(101, "Ahmet Yilmaz", 8, 45));
         system.registerPatient(new Patient(222, "Ayse Demir", 3, 30));
         system.registerPatient(new Patient(473, "Mehmet Kaya", 6, 60));
@@ -22,7 +21,7 @@ public class TestScenario {
         system.registerPatient(new Patient(129, "Ozan Koc", 10, 65));
         system.registerPatient(new Patient(910, "Deniz Ak", 1, 22));
 
-        // 3️⃣ 5 normal + 3 priority tedavi isteği
+        // 5 normal patient and 3 priority patient
         system.addTreatmentRequest(101, false);
         system.addTreatmentRequest(222, false);
         system.addTreatmentRequest(473, false);
@@ -33,20 +32,20 @@ public class TestScenario {
         system.addTreatmentRequest(437, true);
         system.addTreatmentRequest(218, true);
 
-        // 4️⃣ 2 manuel taburcu (stack test)
+
         system.processNextTreatment();
         system.processNextTreatment();
 
-        // 5️⃣ 4 tedavi işlemi (öncelikli önce)
+        // 4 priority treatments
         system.processNextTreatment();
         system.processNextTreatment();
         system.processNextTreatment();
         system.processNextTreatment();
 
-        // 6️⃣ Hastaları severity’ye göre sırala
+        // sorting by severity
         system.sortPatientsBySeverity();
 
-        // 7️⃣ Sistemin son durumunu yazdır
+        // show the end of the status
         system.printStatus();
     }
 }
